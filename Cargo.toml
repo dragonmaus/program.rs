@@ -1,0 +1,12 @@
+[package]
+name = "program"
+version = "1.0.0"
+authors = ["David Wildasin <dragonmaus@posteo.net>"]
+edition = "2018"
+description = "Utility library for command-line programs"
+repository = "https://git.dragonma.us/dragonmaus/program.rs"
+license ="BSD-3-Clause-Clear"
+categories = ["command-line-utilities"]
+publish = false
+
+[dependencies]
