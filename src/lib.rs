@@ -35,7 +35,7 @@ pub fn args_os() -> Vec<OsString> {
 pub fn name(default: &str) -> String {
     match env::args_os().next() {
         None => String::from(default),
-        Some(os_string) => match Path::new(&os_string).file_name() {
+        Some(os_string) => match Path::new(&os_string).file_stem() {
             None => String::from(default),
             Some(os_str) => os_str.to_string_lossy().into_owned(),
         },
@@ -45,7 +45,7 @@ pub fn name(default: &str) -> String {
 pub fn name_os(default: &OsStr) -> OsString {
     match env::args_os().next() {
         None => OsString::from(default),
-        Some(os_string) => match Path::new(&os_string).file_name() {
+        Some(os_string) => match Path::new(&os_string).file_stem() {
             None => OsString::from(default),
             Some(os_str) => os_str.to_os_string(),
         },
