@@ -32,6 +32,10 @@ pub fn args_os() -> Vec<OsString> {
     env::args_os().collect()
 }
 
+pub fn error(kind: std::io::ErrorKind, msg: &str) -> crate::Result {
+    Err(Box::new(std::io::Error::new(kind, msg)))
+}
+
 pub fn name(default: &str) -> String {
     match env::args_os().next() {
         None => String::from(default),
