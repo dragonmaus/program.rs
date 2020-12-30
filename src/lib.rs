@@ -11,9 +11,11 @@ pub type Result = std::result::Result<i32, Box<dyn Error>>;
 macro_rules! main {
     ($name:expr) => {
         fn main() -> ! {
-            std::process::exit(match program() {
+            let name = $crate::name($name);
+
+            std::process::exit(match program(&name) {
                 Err(error) => {
-                    eprintln!("{}: {}", $crate::name($name), error);
+                    eprintln!("{}: {}", name, error);
                     1
                 }
                 Ok(code) => code,
