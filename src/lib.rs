@@ -17,7 +17,7 @@ macro_rules! main {
                 Err(error) => {
                     eprintln!("{}: {}", name, error);
                     1
-                }
+                },
                 Ok(code) => code,
             });
         }
